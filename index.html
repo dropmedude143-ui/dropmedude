@@ -1,27 +1,85 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>dropmedude</title>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>dropmedude</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/drop.css">
 </head>
 <body>
-    <div class="container">
-        <!-- Image path fixed: image is in the repo root (Copilot_20260811_194853.png) -->
-        <img src="./Copilot_20260811_194853.png" alt="dropmedude logo" class="logo">
-        <h1>dropmedude</h1>
-        <p>Welcome to dropmedude.com</p>
-        <p>Your website is now live on GitHub Pages!</p>
-        
-        <button class="button" id="get-started-btn">Get Started</button>
-        <button class="button" id="contact-btn">Contact</button>
-        
-        <div class="github-link">
-            <p>Hosted on <a href="https://github.com/dropmedude143-ui/dropmedude" target="_blank">GitHub</a></p>
-        </div>
+  <div class="container">
+    <img src="./Copilot_20260811_194853.png" alt="dropmedude logo" class="logo">
+    <h1>dropmedude</h1>
+    <p>Share or find rides on your daily route.</p>
+
+    <section class="forms">
+      <div class="card form-card">
+        <h2>Request a Drop</h2>
+        <form id="request-form">
+          <input name="name" placeholder="Full name" required />
+          <select name="gender" required>
+            <option value="">Select gender</option>
+            <option>Male</option>
+            <option>Female</option>
+            <option>Non-binary</option>
+            <option>Prefer not to say</option>
+          </select>
+          <input name="phone" placeholder="Phone (for contact)" required />
+          <input name="pickup" placeholder="Pickup address" required />
+          <input name="drop" placeholder="Drop address" required />
+          <input name="time" type="time" />
+          <textarea name="notes" placeholder="Notes (optional)"></textarea>
+          <button type="submit" class="button">Post Request</button>
+        </form>
+      </div>
+
+      <div class="card form-card">
+        <h2>Register as Rider</h2>
+        <form id="rider-form">
+          <input name="rname" placeholder="Full name" required />
+          <input name="company" placeholder="Company (optional)" />
+          <input name="route" placeholder="Route or common stops" required />
+          <input name="vehicle" placeholder="Vehicle make/model" required />
+          <input name="plate" placeholder="Plate number" />
+          <input name="seats" type="number" min="1" max="8" placeholder="Seats available" />
+          <input name="phone" placeholder="Phone (for contact)" required />
+          <select name="pref">
+            <option value="">No gender preference</option>
+            <option>Prefer female passengers</option>
+            <option>Prefer male passengers</option>
+          </select>
+          <textarea name="notes" placeholder="Notes (optional)"></textarea>
+          <button type="submit" class="button">Register Rider</button>
+        </form>
+      </div>
+    </section>
+
+    <section>
+      <h2>Active Requests</h2>
+      <div id="requests-list" class="list-grid"></div>
+    </section>
+
+    <section>
+      <h2>Riders</h2>
+      <div id="riders-list" class="list-grid"></div>
+    </section>
+
+    <div class="github-link">
+      <p>Hosted on <a href="https://github.com/dropmedude143-ui/dropmedude" target="_blank">GitHub</a></p>
     </div>
-    
-    <script src="js/script.js"></script>
+  </div>
+
+  <!-- Under-development modal -->
+  <div id="dev-modal" class="dev-modal" aria-hidden="true">
+    <div class="dev-modal-content">
+      <div class="spinner" aria-hidden="true"></div>
+      <p>This feature is under development — please wait.</p>
+      <button id="dev-ok" class="button">OK</button>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+  <script src="js/drop.js"></script>
 </body>
 </html>
